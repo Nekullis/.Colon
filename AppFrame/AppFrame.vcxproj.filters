@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Application">
+      <UniqueIdentifier>{4ca63305-d083-453b-88a9-706f0a1ac180}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ModeServer">
+      <UniqueIdentifier>{f65d1d8e-b785-4c0b-a849-085fd92b4b60}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Application\ApplicationBase.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Application\WinMain.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Mode\ModeBase.cpp">
+      <Filter>ModeServer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Mode\ModeServer.cpp">
+      <Filter>ModeServer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\System\Source\Collision\2DCollision.cpp" />
+    <ClCompile Include="source\System\Source\Collision\3DCollision.cpp" />
+    <ClCompile Include="source\System\Source\Resource\ResourceServer.cpp" />
+    <ClCompile Include="source\Application\Global.cpp" />
+    <ClCompile Include="source\System\Source\Function\Timer.cpp" />
+    <ClCompile Include="source\System\Source\Collision\MyStructure.cpp" />
+    <ClCompile Include="source\System\Source\Function\Vibration.cpp" />
+    <ClCompile Include="source\System\Source\Sound\SoundItem.cpp" />
+    <ClCompile Include="source\System\Source\Sound\SoundServer.cpp" />
+    <ClCompile Include="source\System\Source\Input\Mouse.cpp" />
+    <ClCompile Include="source\System\Source\Function\IK.cpp" />
+    <ClCompile Include="source\File\JsonFile\JsonFile.cpp" />
+    <ClCompile Include="source\System\Source\Function\TimeLimit.cpp" />
+    <ClCompile Include="source\System\Source\Math\Matrix3D.cpp" />
+    <ClCompile Include="source\System\Source\Math\mymath.cpp" />
+    <ClCompile Include="source\System\Source\Math\Quaternion.cpp" />
+    <ClCompile Include="source\System\Source\Math\Spline.cpp" />
+    <ClCompile Include="source\System\Source\EventSystem\EventSystem.cpp" />
+    <ClCompile Include="source\System\Source\Effect\AfterImage.cpp" />
+    <ClCompile Include="source\System\Source\Effect\Afterglow.cpp" />
+    <ClCompile Include="source\System\Source\Effect\ScreenVibration.cpp" />
+    <ClCompile Include="source\System\Source\Draw\3DDraw.cpp" />
+    <ClCompile Include="source\System\Source\Draw\DrawGauge.cpp" />
+    <ClCompile Include="source\System\Source\Draw\mydraw.cpp" />
+    <ClCompile Include="source\System\Source\Convert\Convert.cpp" />
+    <ClCompile Include="source\System\Source\Component\AIComponent.cpp" />
+    <ClCompile Include="source\System\Source\Component\AIState.cpp" />
+    <ClCompile Include="source\System\Source\Component\CameraComponent.cpp" />
+    <ClCompile Include="source\System\Source\Component\CapsuleColComponent.cpp" />
+    <ClCompile Include="source\System\Source\Component\CollisionComponent.cpp" />
+    <ClCompile Include="source\System\Source\Component\Component.cpp" />
+    <ClCompile Include="source\System\Source\Component\DrawBillboardComponent.cpp" />
+    <ClCompile Include="source\System\Source\Component\DrawMV1Component.cpp" />
+    <ClCompile Include="source\System\Source\Component\DrawPolygonComponent.cpp" />
+    <ClCompile Include="source\System\Source\Component\InputComponent.cpp" />
+    <ClCompile Include="source\System\Source\Component\MoveComponent.cpp" />
+    <ClCompile Include="source\System\Source\Component\Animation\AnimationItem.cpp" />
+    <ClCompile Include="source\System\Source\Component\Animation\AnimationComponent.cpp" />
+    <ClCompile Include="source\System\Source\Component\Animation\FrameData.cpp" />
+    <ClCompile Include="source\System\Source\Component\Animation\MotionList.cpp" />
+    <ClCompile Include="source\System\Source\Component\Object\ObjectBase.cpp" />
+    <ClCompile Include="source\File\CFile\CFile.cpp" />
+    <ClCompile Include="source\System\Source\Function\Bone.cpp" />
+    <ClCompile Include="source\System\Source\Function\Easing.cpp" />
+    <ClCompile Include="source\System\Source\Function\Fps.cpp" />
+    <ClCompile Include="source\System\Source\Math\Vector2D.cpp" />
+    <ClCompile Include="source\System\Source\Input\XInput.cpp" />
+    <ClCompile Include="source\System\Source\Component\DrawComponent.cpp" />
+    <ClCompile Include="source\System\Source\Component\DrawGraphComponent.cpp" />
+    <ClCompile Include="source\System\Source\Component\LogicComponent.cpp" />
+    <ClCompile Include="source\System\Source\Component\DrawOBBComponent.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Application\ApplicationBase.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Application\UtilMacro.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Mode\ModeBase.h">
+      <Filter>ModeServer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Mode\ModeServer.h">
+      <Filter>ModeServer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\appframe.h" />
+    <ClInclude Include="source\System\Header\Collision\2DCollision.h" />
+    <ClInclude Include="source\System\Header\Collision\MyStructure.h" />
+    <ClInclude Include="source\System\Header\Collision\3DCollision.h" />
+    <ClInclude Include="source\System\Header\Resource\ResourceServer.h" />
+    <ClInclude Include="source\Application\Global.h" />
+    <ClInclude Include="source\System\Header\Function\Timer.h" />
+    <ClInclude Include="source\System\Header\Function\Vibration.h" />
+    <ClInclude Include="source\System\Header\Sound\SoundItem.h" />
+    <ClInclude Include="source\System\Header\Sound\SoundServer.h" />
+    <ClInclude Include="source\System\Header\Input\XInput.h" />
+    <ClInclude Include="MemoryLeak.h" />
+    <ClInclude Include="source\System\Header\Input\Mouse.h" />
+    <ClInclude Include="source\System\Header\Function\IK.h" />
+    <ClInclude Include="source\File\JsonFile\JsonFile.h" />
+    <ClInclude Include="source\System\Header\Math\Matrix3D.h" />
+    <ClInclude Include="source\System\Header\Math\mymath.h" />
+    <ClInclude Include="source\System\Header\Math\Quaternion.h" />
+    <ClInclude Include="source\System\Header\Math\Spline.h" />
+    <ClInclude Include="source\System\Header\Math\Vector3D.h" />
+    <ClInclude Include="source\System\Header\Function\myJson.h" />
+    <ClInclude Include="source\System\Header\Function\TimeLimit.h" />
+    <ClInclude Include="source\System\Header\EventSystem\EventSystem.h" />
+    <ClInclude Include="source\System\Header\Effect\Afterglow.h" />
+    <ClInclude Include="source\System\Header\Effect\AfterImage.h" />
+    <ClInclude Include="source\System\Header\Effect\ScreenVibration.h" />
+    <ClInclude Include="source\System\Header\Draw\3DDraw.h" />
+    <ClInclude Include="source\System\Header\Draw\DrawGauge.h" />
+    <ClInclude Include="source\System\Header\Draw\mydraw.h" />
+    <ClInclude Include="source\System\Header\Convert\Convert.h" />
+    <ClInclude Include="source\System\Header\Component\AIComponent.h" />
+    <ClInclude Include="source\System\Header\Component\AIState.h" />
+    <ClInclude Include="source\System\Header\Component\CameraComponent.h" />
+    <ClInclude Include="source\System\Header\Component\CapsuleColComponent.h" />
+    <ClInclude Include="source\System\Header\Component\CollisionComponent.h" />
+    <ClInclude Include="source\System\Header\Component\Component.h" />
+    <ClInclude Include="source\System\Header\Component\DrawBillboardComponent.h" />
+    <ClInclude Include="source\System\Header\Component\DrawMV1Component.h" />
+    <ClInclude Include="source\System\Header\Component\DrawPolygonComponent.h" />
+    <ClInclude Include="source\System\Header\Component\InputComponent.h" />
+    <ClInclude Include="source\System\Header\Component\MoveComponent.h" />
+    <ClInclude Include="source\System\Header\Component\Animation\AnimationItem.h" />
+    <ClInclude Include="source\System\Header\Component\Animation\AnimationComponent.h" />
+    <ClInclude Include="source\System\Header\Component\Animation\FrameData.h" />
+    <ClInclude Include="source\System\Header\Component\Animation\MotionList.h" />
+    <ClInclude Include="source\System\Header\Component\Object\ObjectBase.h" />
+    <ClInclude Include="source\File\CFile\CFile.h" />
+    <ClInclude Include="source\System\Header\Function\Easing.h" />
+    <ClInclude Include="source\System\Header\Function\Bone.h" />
+    <ClInclude Include="source\System\Header\Function\Fps.h" />
+    <ClInclude Include="source\System\Header\Math\Vector2D.h" />
+    <ClInclude Include="source\System\Header\Component\DrawComponent.h" />
+    <ClInclude Include="source\System\Header\Component\DrawGraphComponent.h" />
+    <ClInclude Include="source\System\Header\Component\LogicComponent.h" />
+    <ClInclude Include="source\System\Header\Component\ComponentLib.h" />
+    <ClInclude Include="source\System\Header\Types\DataTypes.h" />
+    <ClInclude Include="source\System\Header\Component\DrawOBBComponent.h" />
+  </ItemGroup>
+</Project>

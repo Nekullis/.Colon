@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="source\Source\Mode\ModeGame.cpp" />
+    <ClCompile Include="source\Source\Application\ApplicationMain.cpp" />
+    <ClCompile Include="source\Source\Character\CharacterBase.cpp" />
+    <ClCompile Include="source\Source\Character\CharacterManager.cpp" />
+    <ClCompile Include="source\Source\Character\Player\Player.cpp" />
+    <ClCompile Include="source\Source\Mode\ModeDebug.cpp" />
+    <ClCompile Include="source\Source\Character\GameStage\GameStage.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Header\Mode\ModeGame.h" />
+    <ClInclude Include="source\Header\Application\ApplicationMain.h" />
+    <ClInclude Include="source\Header\Character\CharacterBase.h" />
+    <ClInclude Include="source\Header\Character\CharacterManager.h" />
+    <ClInclude Include="source\Header\Character\Player\Player.h" />
+    <ClInclude Include="source\Header\Mode\ModeDebug.h" />
+    <ClInclude Include="source\Header\Character\GameStage\GameStage.h" />
+  </ItemGroup>
+</Project>
