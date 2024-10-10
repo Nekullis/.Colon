@@ -13,6 +13,10 @@ public:
 	virtual ~DrawOBBComponent();
 	//更新
 	void Update()override;
-	void LoadPass(const char* pass)override;
+	//セッター
+	void SetOBB(class OBB* obb) { m_Collision = obb; }
+
+protected:
+	class OBB* m_Collision;
 };
 

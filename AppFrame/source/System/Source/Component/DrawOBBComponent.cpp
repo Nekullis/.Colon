@@ -5,6 +5,7 @@
 // OBB描画クラス
 //----------------------------------------------------------------------
 #include "../../AppFrame/source/System/Header/Component/DrawOBBComponent.h"
+#include "../../AppFrame/source/System/Header/Collision/MyStructure.h"
 
 //----------------------------------------------------------------------
 // @brief コンストラクタ
@@ -12,8 +13,8 @@
 // @param updateowder 更新順番
 // @return なし
 //----------------------------------------------------------------------
-DrawOBBComponent::DrawOBBComponent(ObjectBase* owner, int updateowder):DrawComponent(owner,updateowder)
-{
+DrawOBBComponent::DrawOBBComponent(ObjectBase* owner, int updateowder):DrawComponent(owner,updateowder){
+	m_Collision = new OBB();
 }
 
 //----------------------------------------------------------------------
@@ -21,21 +22,15 @@ DrawOBBComponent::DrawOBBComponent(ObjectBase* owner, int updateowder):DrawCompo
 // @return なし
 //----------------------------------------------------------------------
 DrawOBBComponent::~DrawOBBComponent(){
-}
-
-//----------------------------------------------------------------------
-// @brief 読み込み
-// @param pass モデルのパス
-// @return なし
-//----------------------------------------------------------------------
-void DrawOBBComponent::Update(){
-	DrawComponent::Update();
+	delete m_Collision;
 }
 
 //----------------------------------------------------------------------
 // @brief モデルの設定・描画
 // @return なし
 //----------------------------------------------------------------------
-void DrawOBBComponent::LoadPass(const char* pass){
-	DrawComponent::LoadPass(pass);
+void DrawOBBComponent::Update(){
+	DrawComponent::Update();
+	m_Collision->Render(GetColor(255,255,255));
 }
+

@@ -12,3 +12,4 @@
 #include "InputComponent.h"
 #include "LogicComponent.h"
 #include "MoveComponent.h"
+#include "DrawOBBComponent.h"
