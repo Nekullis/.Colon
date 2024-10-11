@@ -29,8 +29,14 @@ void OBB::Rotate(Vector3D vRot)
 	m = MMult(m, MGetRotY(vRot.y));
 	m = MMult(m, MGetRotZ(vRot.z));
 
+	Vector3D d[3] = {
+	 Vector3D(1.0f, 0.0f, 0.0f),
+	 Vector3D(0.0f, 1.0f, 0.0f),
+	 Vector3D(0.0f, 0.0f, 1.0f)
+	};
+
 	for (int i = 0; i < 3; i++) {
-		dir_vec[i] = VTransform(dir_vec[i].toVECTOR(), m);
+		dir_vec[i] = VTransform(d[i].toVECTOR(), m);
 	}
 }
 

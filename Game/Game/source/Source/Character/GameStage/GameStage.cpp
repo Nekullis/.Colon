@@ -45,23 +45,24 @@ GameStage::~GameStage(){
 void GameStage::Process(){
 	CharacterBase::Process();
 	//回転地の基底値を設定
-	float Num = Math::DegToRad(45.0f);
+	float Control_Value = Math::DegToRad(30.0f);
 	//ベクトルの増加量を設定
-	float Vec_Dir = Math::DegToRad(3.0f);
+	float Vec_Dir = Math::DegToRad(1.0f);
 
 	if (m_Input->GetPad()->IsInputStickLeft()){
 		//パッドのアナログスティックのx数値を反映
-		if (m_Input->GetPad()->GetLx() > 0) { m_Rotation.x += Vec_Dir; }
-		else if (m_Input->GetPad()->GetLx() < 0) { m_Rotation.x -= Vec_Dir; }
+		if (m_Input->GetPad()->GetLx() > 0) { m_Rotation.z -= Vec_Dir; }
+		else if (m_Input->GetPad()->GetLx() < 0) { m_Rotation.z += Vec_Dir; }
 		//規定値を超えないように設定
-		m_Rotation.x = std::clamp(m_Rotation.x, -Num, Num);
+		m_Rotation.z = std::clamp(m_Rotation.z, -Control_Value, Control_Value);
 
 		//パッドのアナログスティックのy数値を反映
-		if (m_Input->GetPad()->GetLy() > 0) { m_Rotation.z += Vec_Dir; }
-		else if (m_Input->GetPad()->GetLy() < 0) { m_Rotation.z -= Vec_Dir; }
+		if (m_Input->GetPad()->GetLy() > 0) { m_Rotation.x += Vec_Dir; }
+		else if (m_Input->GetPad()->GetLy() < 0) { m_Rotation.x -= Vec_Dir; }
 		//規定値を超えないように設定
-		m_Rotation.z = std::clamp(m_Rotation.z, -Num, Num);
+		m_Rotation.x = std::clamp(m_Rotation.x, -Control_Value, Control_Value);
 	}
+
 	//OBBを回転させる
 	m_Collision->Rotate(m_Rotation);
 	m_OBB->SetOBB(m_Collision);
