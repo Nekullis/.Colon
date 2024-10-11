@@ -16,7 +16,7 @@ GameStage::GameStage(ModeBase* game):CharacterBase(game){
 	//位置初期化
 	m_Pos = Vector3D(500.0f, 0.0f, 100.0f);
 	//スケール設定
-	m_Scale = Vector3D(100.0f, 10.0f, 100.0f);
+	m_Scale = Vector3D(1000.0f, 10.0f, 1000.0f);
 
 	//入力用コンポーネント初期化
 	m_Input = NEW InputComponent(this);
@@ -29,6 +29,9 @@ GameStage::GameStage(ModeBase* game):CharacterBase(game){
 	//コリジョン用OBB初期化
 	m_Collision = NEW OBB("stage", m_Pos, m_Scale);
 	m_OBB = NEW DrawOBBComponent(this);
+
+	//カメラ初期化
+	m_Camera = NEW CameraComponent(this);
 }
 
 //----------------------------------------------------------------------

@@ -15,8 +15,9 @@ public:
 	void Process()	override;
 protected:
 	//入力処理コンポーネント
-	InputComponent* m_Input;
-	OBB* m_Collision;
-	DrawOBBComponent* m_OBB;
+	class InputComponent* m_Input;
+	class OBB* m_Collision;
+	class DrawOBBComponent* m_OBB;
+	class CameraComponent* m_Camera;
 };
 
