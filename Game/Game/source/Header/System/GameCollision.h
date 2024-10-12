@@ -6,11 +6,18 @@
 // 当たり判定の制御全般を扱うクラス
 //----------------------------------------------------------------------
 #pragma once
+#include <vector>
 class GameCollision
 {
 public:
 	GameCollision();
 	~GameCollision();
 	void Process();
+	//コリジョン追加
+	void AddCollision(class CollisionComponent* col);
+	//ゲッター
+	std::vector<class CollisionComponent*> GetCollisionList() { return m_CollisionList; }
+protected:
+	std::vector<class CollisionComponent*> m_CollisionList;
 };
 

@@ -12,7 +12,7 @@ class CapsuleColComponent :public CollisionComponent
 {
 public:
 	static CapsuleColComponent* capInstance;
-	CapsuleColComponent(class ObjectBase* owner, int updateowder = 200);
+	CapsuleColComponent(class ObjectBase* owner, int updateowder = 10);
 	virtual ~CapsuleColComponent();
 	virtual void Update()override;
 	//ÉQÉbÉ^Å[

@@ -26,7 +26,7 @@ public:
 		ENEMY,
 		Neutral
 	};
-	CollisionComponent(class ObjectBase* owner, int updateowder = 150);
+	CollisionComponent(class ObjectBase* owner, int updateowder = 10);
 	virtual ~CollisionComponent();
 	virtual void Update()override;
 	//ÉQÉbÉ^Å[
