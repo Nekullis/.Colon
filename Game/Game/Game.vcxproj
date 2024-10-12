@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\Source\System\GameCollision.cpp" />
     <ClCompile Include="source\Source\Character\GameStage\GameStage.cpp" />
     <ClCompile Include="source\Source\Mode\ModeDebug.cpp" />
     <ClCompile Include="source\Source\Character\CharacterBase.cpp" />
@@ -28,6 +29,7 @@
     <ClCompile Include="source\Source\Mode\ModeGame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\Header\System\GameCollision.h" />
     <ClInclude Include="source\Header\Character\GameStage\GameStage.h" />
     <ClInclude Include="source\Header\Mode\ModeDebug.h" />
     <ClInclude Include="source\Header\Character\CharacterBase.h" />
