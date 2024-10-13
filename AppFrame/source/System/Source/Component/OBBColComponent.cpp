@@ -16,6 +16,7 @@
 //----------------------------------------------------------------------
 OBBColComponent::OBBColComponent(ObjectBase* owner, int updateowder) :CollisionComponent(owner, updateowder){
 	m_Col = new OBB();
+	mType = COLLISIONTYPE::OBB;
 }
 
 //----------------------------------------------------------------------
