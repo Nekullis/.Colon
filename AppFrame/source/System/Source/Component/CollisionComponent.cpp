@@ -6,7 +6,7 @@
 //----------------------------------------------------------------------
 #include "../../Header/Component/CollisionComponent.h"
 #include "../../Header/Component/Object/ObjectBase.h"
-
+#include "../../Header/Collision/MyStructure.h"
 //----------------------------------------------------------------------
 // @brief コンストラクタ
 // @param owner オーナー
@@ -15,6 +15,7 @@
 //----------------------------------------------------------------------
 CollisionComponent::CollisionComponent(ObjectBase* owner, int updateowder) :LogicComponent(owner, updateowder)
 {
+	m_Col = nullptr;
 	m_Owner = owner;
 	mManager = nullptr;
 	mType = COLLISIONTYPE::NONE;

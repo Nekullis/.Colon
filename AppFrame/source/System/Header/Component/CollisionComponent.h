@@ -30,18 +30,22 @@ public:
 	virtual ~CollisionComponent();
 	virtual void Update()override;
 	//ゲッター
+	class CollisionBase* GetCollision() { return m_Col; }
 	Vector3D GetPos() const { return mPos; }
 	float GetRadius() const { return mRadius; }
 	float GetSeg() const { return mLineSeg; }
 	COLLISIONTYPE GetType() const { return mType; }
 	COLLISIONGROUP GetGroup() const { return mGroup; }
 	//セッター
+	void SetCollision(class CollisionBase* col) { m_Col = col; }
 	void SetPos(Vector3D pos) { mPos = pos; }
 	void SetRadius(float radius) { mRadius = radius; }
 	void SetType(COLLISIONTYPE col) { mType = col; }
 	void SetSeg(float seg) { mLineSeg = seg; }
 	void SetGroup(COLLISIONGROUP group) { mGroup = group; }
 protected:
+	//当たり判定用オブジェクト
+	class CollisionBase* m_Col;
 	//位置
 	Vector3D mPos;
 	//マネージャー

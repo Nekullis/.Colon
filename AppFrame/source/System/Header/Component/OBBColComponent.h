@@ -12,11 +12,5 @@ public:
 	OBBColComponent(class ObjectBase* owner, int updateowder);
 	virtual ~OBBColComponent();
 	void Update()override;
-	//セッター
-	void SetOBB(class OBB* obb) { m_Collision = obb; }
-
-protected:
-	class OBB* m_Collision;
-
 };
 
