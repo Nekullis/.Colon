@@ -45,11 +45,43 @@ void GameCollision::Process(){
 		for (auto itr = m_CollisionList.begin(); itr != m_CollisionList.end(); itr++) {
 			for (auto jtr = itr + 1; jtr != m_CollisionList.end(); jtr++) {
 				//同じものなら再検索
-				if (itr == jtr)continue;
-				//	OBBと球の当たり判定の場合
+				if (itr == jtr)continue; 
+				//当たり判定の種類
+				enum class HITTYPE_3D :int{
+					//初期化値
+					NONE = 0,
+					//球と球
+					SPHERE_TO_SPHERE,
+					//球とOBB
+					SPHERE_TO_OBB,
+					//OBBとOBB
+					OBB_TO_OBB,
+					//カプセルとカプセル
+					CAPSULE_TO_CAPSULE
+				}
+				//ヒットフラグ初期化
+				Hit = HITTYPE_3D::NONE;
+				//2つのオブジェクトの最短距離初期化
+				float dis = 0.0f;
+				//	当たり判定タイプがOBBと球の場合
 				if ((*itr)->GetType() == CollisionComponent::COLLISIONTYPE::OBB&& 
 					(*jtr)->GetType() == CollisionComponent::COLLISIONTYPE::SPHERE) {
-
+					Hit = HITTYPE_3D::SPHERE_TO_OBB;
+				}
+				switch (Hit)
+				{
+				case HITTYPE_3D::NONE:
+					break;
+				case HITTYPE_3D::SPHERE_TO_SPHERE:
+					break;
+				case HITTYPE_3D::SPHERE_TO_OBB:
+					break;
+				case HITTYPE_3D::OBB_TO_OBB:
+					break;
+				case HITTYPE_3D::CAPSULE_TO_CAPSULE:
+					break;
+				default:
+					break;
 				}
 			}
 		}

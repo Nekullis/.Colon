@@ -18,6 +18,7 @@ public:
 	//ゲッター
 	std::vector<class CollisionComponent*> GetCollisionList() { return m_CollisionList; }
 protected:
+	//衝突判定用コンポーネントコンテナ
 	std::vector<class CollisionComponent*> m_CollisionList;
 };
 
