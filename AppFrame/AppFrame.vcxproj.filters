@@ -72,6 +72,7 @@
     <ClCompile Include="source\System\Source\Component\DrawGraphComponent.cpp" />
     <ClCompile Include="source\System\Source\Component\LogicComponent.cpp" />
     <ClCompile Include="source\System\Source\Component\DrawOBBComponent.cpp" />
+    <ClCompile Include="source\System\Source\Component\OBBColComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Application\ApplicationBase.h">
@@ -143,5 +144,6 @@
     <ClInclude Include="source\System\Header\Component\ComponentLib.h" />
     <ClInclude Include="source\System\Header\Types\DataTypes.h" />
     <ClInclude Include="source\System\Header\Component\DrawOBBComponent.h" />
+    <ClInclude Include="source\System\Header\Component\OBBColComponent.h" />
   </ItemGroup>
 </Project>

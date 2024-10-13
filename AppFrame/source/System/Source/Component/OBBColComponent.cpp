@@ -1,11 +1,11 @@
 //----------------------------------------------------------------------
-// @filename DrawComponent.cpp
+// @filename DrawComponent.h
 // @author: Fukuma Kyohei
 // @explanation
-// OBB描画クラス
+// OBBの当たり判定に用いるクラス
 //----------------------------------------------------------------------
-#include "../../AppFrame/source/System/Header/Component/DrawOBBComponent.h"
-#include "../../AppFrame/source/System/Header/Collision/MyStructure.h"
+#include "../../AppFrame/source/System/Header/Component/OBBColComponent.h"
+#include "../../AppFrame/source/System/Header/Component/Object/ObjectBase.h"
 
 //----------------------------------------------------------------------
 // @brief コンストラクタ
@@ -13,24 +13,22 @@
 // @param updateowder 更新順番
 // @return なし
 //----------------------------------------------------------------------
-DrawOBBComponent::DrawOBBComponent(ObjectBase* owner, int updateowder):DrawComponent(owner,updateowder){
-	m_Collision = new OBB();
+OBBColComponent::OBBColComponent(ObjectBase* owner, int updateowder) :CollisionComponent(owner, updateowder)
+{
 }
 
 //----------------------------------------------------------------------
 // @brief デストラクタ
 // @return なし
 //----------------------------------------------------------------------
-DrawOBBComponent::~DrawOBBComponent(){
-	delete m_Collision;
+OBBColComponent::~OBBColComponent()
+{
 }
 
 //----------------------------------------------------------------------
 // @brief 更新処理
 // @return なし
 //----------------------------------------------------------------------
-void DrawOBBComponent::Update(){
-	DrawComponent::Update();
-	m_Collision->Render(GetColor(255,255,255));
+void OBBColComponent::Update()
+{
 }
-
