@@ -7,6 +7,9 @@
 //----------------------------------------------------------------------
 #pragma once
 #include <vector>
+//定数
+auto constexpr COL_OWDER = 10;
+
 class GameCollision
 {
 public:
@@ -14,7 +17,7 @@ public:
 	~GameCollision();
 	void Process();
 	//コリジョン追加
-	void AddCollision(class CollisionComponent* col);
+	void AddCollision(class CharacterBase* chara);
 	//ゲッター
 	std::vector<class CollisionComponent*> GetCollisionList() { return m_CollisionList; }
 protected:

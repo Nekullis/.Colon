@@ -6,6 +6,7 @@
 // 当たり判定の制御全般を扱うクラス
 //----------------------------------------------------------------------
 #include "../Game/Game/source/Header/System/GameCollision.h"
+#include"../Game/Game/source/Header/Character/CharacterBase.h"
 #include "appframe.h"
 
 //----------------------------------------------------------------------
@@ -26,12 +27,19 @@ GameCollision::~GameCollision(){
 }
 
 //----------------------------------------------------------------------
-// @brief デストラクタ
-// @param col 衝突判定用コンポーネント
+// @brief 当たり判定コンポーネント追加
+// @param chara オブジェクト
 // @return なし
 //----------------------------------------------------------------------
-void GameCollision::AddCollision(CollisionComponent* col){
-	m_CollisionList.push_back(col);
+void GameCollision::AddCollision(CharacterBase* chara){
+	//コンポーネント全検索
+	for (auto&& component : chara->GetComponent()) {
+		//当たり判定用のコンポーネントだけを別コンテナに
+		if (component->GetUpdateOwder() == COL_OWDER) {
+			CollisionComponent* col = static_cast<CollisionComponent*>(component);
+			m_CollisionList.push_back(col);
+		}
+	}
 }
 
 //----------------------------------------------------------------------
