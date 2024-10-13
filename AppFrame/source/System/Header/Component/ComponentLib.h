@@ -14,3 +14,4 @@
 #include "MoveComponent.h"
 #include "DrawOBBComponent.h"
 #include "OBBColComponent.h"
+#include "SphereColComponent.h"

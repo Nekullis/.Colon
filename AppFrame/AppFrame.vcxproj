@@ -219,6 +219,7 @@
     <ClCompile Include="source\System\Source\Resource\ResourceServer.cpp" />
     <ClCompile Include="source\System\Source\Sound\SoundItem.cpp" />
     <ClCompile Include="source\System\Source\Sound\SoundServer.cpp" />
+    <ClCompile Include="source\System\Source\Component\SphereColComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\System\Header\Component\OBBColComponent.h" />
@@ -283,6 +284,7 @@
     <ClInclude Include="source\System\Header\Sound\SoundItem.h" />
     <ClInclude Include="source\System\Header\Sound\SoundServer.h" />
     <ClInclude Include="source\System\Header\Types\DataTypes.h" />
+    <ClInclude Include="source\System\Header\Component\SphereColComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
