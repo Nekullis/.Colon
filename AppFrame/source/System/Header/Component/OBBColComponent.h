@@ -9,7 +9,7 @@
 class OBBColComponent :public CollisionComponent
 {
 public:
-	OBBColComponent(class ObjectBase* owner, int updateowder);
+	OBBColComponent(class ObjectBase* owner, int updateowder = 10);
 	virtual ~OBBColComponent();
 	void Update()override;
 };

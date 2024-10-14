@@ -9,7 +9,7 @@
 class DrawSphereComponent : public DrawComponent
 {
 public:
-	DrawSphereComponent(class ObjectBase* owner, int updateowder);
+	DrawSphereComponent(class ObjectBase* owner, int updateowder = 250);
 	virtual ~DrawSphereComponent();
 	void Update()override;
 	//セッター

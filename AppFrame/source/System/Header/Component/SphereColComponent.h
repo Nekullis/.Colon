@@ -9,7 +9,7 @@
 class SphereColComponent :public CollisionComponent
 {
 public:
-	SphereColComponent(ObjectBase* owner, int updateowder);
+	SphereColComponent(ObjectBase* owner, int updateowder = 10);
 	virtual ~SphereColComponent();
 	void Update()override;
 };

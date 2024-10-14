@@ -16,4 +16,6 @@ public:
 	void Render()	override;
 	void Debug()	override;
 protected:
+	class Sphere* m_Collision;
+	class DrawSphereComponent* m_Sphere;
 };

@@ -15,3 +15,4 @@
 #include "DrawOBBComponent.h"
 #include "OBBColComponent.h"
 #include "SphereColComponent.h"
+#include "DrawSphereComponent.h"

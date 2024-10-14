@@ -7,6 +7,7 @@
 #include "../../Header/Mode/ModeGame.h"
 #include "../../Header/Character/CharacterManager.h"
 #include "../../Header/Character/GameStage/GameStage.h"
+#include "../../Header/Character/Player/Player.h"
 //----------------------------------------------------------------------
 // @brief 初期化処理
 // @return 無し
@@ -16,6 +17,7 @@ bool ModeGame::Initialize() {
 	// マネージャーの取得
 	m_CharaManager = NEW CharacterManager();
 	m_CharaManager->AddChara(NEW GameStage(this));
+	m_CharaManager->AddChara(NEW Player(this));
 	return true;
 }
 //----------------------------------------------------------------------
