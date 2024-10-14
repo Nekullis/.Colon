@@ -14,7 +14,7 @@
 // @return ‚È‚µ
 //----------------------------------------------------------------------
 DrawOBBComponent::DrawOBBComponent(ObjectBase* owner, int updateowder):DrawComponent(owner,updateowder){
-	m_Collision = new OBB();
+	m_Obb = new OBB();
 }
 
 //----------------------------------------------------------------------
@@ -22,7 +22,8 @@ DrawOBBComponent::DrawOBBComponent(ObjectBase* owner, int updateowder):DrawCompo
 // @return ‚È‚µ
 //----------------------------------------------------------------------
 DrawOBBComponent::~DrawOBBComponent(){
-	delete m_Collision;
+	delete m_Obb;
+	m_Obb = nullptr;
 }
 
 //----------------------------------------------------------------------
@@ -31,6 +32,6 @@ DrawOBBComponent::~DrawOBBComponent(){
 //----------------------------------------------------------------------
 void DrawOBBComponent::Update(){
 	DrawComponent::Update();
-	m_Collision->Render(GetColor(255,255,255));
+	m_Obb->Render(GetColor(255,255,255));
 }
 

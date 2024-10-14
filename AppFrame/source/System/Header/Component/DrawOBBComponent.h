@@ -14,9 +14,9 @@ public:
 	//更新
 	void Update()override;
 	//セッター
-	void SetOBB(class OBB* obb) { m_Collision = obb; }
+	void SetOBB(class OBB* obb) { m_Obb = obb; }
 
 protected:
-	class OBB* m_Collision;
+	class OBB* m_Obb;
 };
 
