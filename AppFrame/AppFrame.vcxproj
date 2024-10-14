@@ -163,6 +163,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\System\Source\Component\DrawSphereComponent.cpp" />
     <ClCompile Include="source\System\Source\Component\OBBColComponent.cpp" />
     <ClCompile Include="source\System\Source\Component\DrawOBBComponent.cpp" />
     <ClCompile Include="source\System\Source\Component\LogicComponent.cpp" />
@@ -222,6 +223,7 @@
     <ClCompile Include="source\System\Source\Component\SphereColComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\System\Header\Component\DrawSphereComponent.h" />
     <ClInclude Include="source\System\Header\Component\OBBColComponent.h" />
     <ClInclude Include="source\System\Header\Component\DrawOBBComponent.h" />
     <ClInclude Include="source\System\Header\Component\ComponentLib.h" />
