@@ -39,6 +39,10 @@ GameStage::GameStage(ModeBase* game):CharacterBase(game){
 // @return ‚È‚µ
 //----------------------------------------------------------------------
 GameStage::~GameStage(){
+	delete m_Collision;
+	m_Collision = nullptr;
+	delete m_Camera;
+	m_Camera = nullptr;
 }
 
 //----------------------------------------------------------------------

@@ -26,6 +26,8 @@ bool ModeGame::Initialize() {
 //----------------------------------------------------------------------
 bool ModeGame::Terminate() {
 	base::Terminate();
+	delete m_CharaManager;
+	m_CharaManager = nullptr;
 	return true;
 }
 //----------------------------------------------------------------------

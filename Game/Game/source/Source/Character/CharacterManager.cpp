@@ -7,6 +7,7 @@
 //----------------------------------------------------------------------
 #include "../../Header/Character/CharacterManager.h"
 #include "../../Header/Character/CharacterBase.h"
+#include "../../Header/System/GameCollision.h"
 
 //----------------------------------------------------------------------
 // @brief コンストラクタ
@@ -27,12 +28,15 @@ CharacterManager::~CharacterManager(){
 // @param chara キャラクターオブジェクト
 // @return なし
 //----------------------------------------------------------------------
-void CharacterManager::AddChara(CharacterBase* chara){
+void CharacterManager::AddChara(CharacterBase* chara, GameCollision* col){
 	//描画コンポーネントをマネージャー内のコンテナに移動
 	for (auto&& component : chara->GetComponent()){
 		if (component->GetUpdateOwder() > DRAW_OWDER) {
 			m_Draw.push_back(std::move(component));
 		}
+	}
+	if (col != nullptr) {
+		col->AddCollision(chara);
 	}
 	//コンテナに格納
 	m_CharaList.emplace_back(chara);

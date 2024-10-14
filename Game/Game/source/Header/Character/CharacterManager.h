@@ -18,7 +18,7 @@ public:
 	void UpDate();
 	void Render();
 	//キャラクター追加
-	void AddChara(class CharacterBase* chara);
+	void AddChara(class CharacterBase* chara, class GameCollision* col = nullptr);
 	//キャラクター削除
 	void DeleteChara(class CharacterBase* chara);
 	//ゲッター
