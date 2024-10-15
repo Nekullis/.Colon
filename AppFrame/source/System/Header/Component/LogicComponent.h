@@ -9,7 +9,7 @@
 class LogicComponent :public Component
 {
 public:
-	LogicComponent(ObjectBase* owner, int updateowder = 50);
+	LogicComponent(ObjectBase* owner, int updateowder = 100);
 	virtual ~LogicComponent();
 	//çXêV
 	virtual void Update()override;

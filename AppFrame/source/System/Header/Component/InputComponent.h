@@ -9,7 +9,7 @@
 class InputComponent : public MoveComponent
 {
 public:
-	InputComponent(class ObjectBase* owner, int updateowder = 10);
+	InputComponent(class ObjectBase* owner, int updateowder = 100);
 	virtual ~InputComponent();
 	void Update()override;
 	//ÉQÉbÉ^Å[

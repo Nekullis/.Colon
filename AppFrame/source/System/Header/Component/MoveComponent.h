@@ -9,7 +9,7 @@
 class MoveComponent : public LogicComponent
 {
 public:
-	MoveComponent(class ObjectBase* owner, int updateowder = 10);
+	MoveComponent(class ObjectBase* owner, int updateowder = 100);
 	virtual ~MoveComponent();
 	//çXêV
 	void Update()override;

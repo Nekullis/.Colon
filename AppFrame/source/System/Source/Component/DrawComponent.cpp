@@ -5,6 +5,7 @@
 // 描画用コンポーネントの基底クラス
 //----------------------------------------------------------------------
 #include"../../AppFrame/source/System/Header/Component/DrawComponent.h"
+#include "../../Header/Component/Object/ObjectBase.h"
 
 //----------------------------------------------------------------------
 // @brief コンストラクタ
@@ -43,4 +44,5 @@ void DrawComponent::LoadPass(const char* pass) {
 //----------------------------------------------------------------------
 void DrawComponent::Update(){
 	Component::Update();
+	m_Pos = m_Owner->GetPos();
 }
