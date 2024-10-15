@@ -57,10 +57,19 @@ void GameCollision::Process(){
 				//	当たり判定タイプがOBBと球の場合
 				if ((*itr)->GetType() == CollisionComponent::COLLISIONTYPE::OBB&& 
 					(*jtr)->GetType() == CollisionComponent::COLLISIONTYPE::SPHERE) {
+					//各オブジェクトの当たり判定を取得
 					OBB* Obb = static_cast<OBB*>((*itr)->GetCollision());
 					Sphere* Sph = static_cast<Sphere*>((*jtr)->GetCollision());
-					if (Collision3D::OBBSphereCol(*Obb, *Sph)) {
-						int i = 0;
+					//最近点用の変数初期化
+					Vector3D* Dist = NEW Vector3D(0.0f, 0.0f, 0.0f);
+					//オブジェクト同士が当たっていた場合
+					if (Collision3D::OBBSphereCol(*Obb, *Sph, Dist)) {
+						//オブジェクト間の距離を求める
+						Vector3D Sub = (*jtr)->GetPos() - (*itr)->GetPos();
+						//正規化して逆ベクトルに
+						Sub = Sub.Normalize() * -1;
+						//オブジェクトの位置に反映
+						(*jtr)->SetPos(Sub);
 					}
 				}
 			}
