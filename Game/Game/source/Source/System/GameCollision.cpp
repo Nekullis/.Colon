@@ -68,6 +68,8 @@ void GameCollision::Process(){
 						Vector3D Sub = (*jtr)->GetPos() - (*itr)->GetPos();
 						//正規化して逆ベクトルに
 						Sub = Sub.Normalize() * -1;
+						Vector3D Vec = Obb->dir_vec[0] + Obb->dir_vec[2];
+						Vec = Vec.Normalize();
 						//オブジェクトの位置に反映
 						(*jtr)->SetPos(Sub);
 					}

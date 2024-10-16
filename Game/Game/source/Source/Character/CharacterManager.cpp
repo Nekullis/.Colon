@@ -35,7 +35,7 @@ void CharacterManager::AddChara(CharacterBase* chara, GameCollision* col){
 			m_Draw.push_back(std::move(component));
 		}
 	}
-	if (col != nullptr) {
+	if (col) {
 		col->AddCollision(chara);
 	}
 	//ƒRƒ“ƒeƒi‚ÉŠi”[

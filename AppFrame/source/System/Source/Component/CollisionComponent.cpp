@@ -39,4 +39,5 @@ CollisionComponent::~CollisionComponent()
 void CollisionComponent::Update()
 {
 	mPos = m_Owner->GetPos();
+	m_Col->pos = mPos;
 }
