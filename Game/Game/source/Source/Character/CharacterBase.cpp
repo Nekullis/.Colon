@@ -36,7 +36,7 @@ void CharacterBase::Process(){
 		//y座標を重力値で減算し続ける
 		m_Pos.y -= GRAVITY_VALUE;
 		//規定値まで落ちたらそこでy座標を固定する
-		if (m_Pos.y <= 0.0f) { m_Pos.y = 0.0f; }
+		if (m_Pos.y <= -1000.0f) { m_Pos.y = -1000.0f; }
 	}
 	
 }

@@ -33,5 +33,6 @@ DrawSphereComponent::~DrawSphereComponent(){
 //----------------------------------------------------------------------
 void DrawSphereComponent::Update(){
 	DrawComponent::Update();
+	m_Sphere->pos = m_Pos;
 	m_Sphere->Render(GetColor(255, 255, 255));
 }

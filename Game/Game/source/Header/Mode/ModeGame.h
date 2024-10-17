@@ -21,4 +21,5 @@ public:
 	class CharacterManager* GetCharaManager() const { return m_CharaManager; }
 protected:
 	class CharacterManager* m_CharaManager;
+	class GameCollision* m_GameCol;
 };

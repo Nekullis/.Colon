@@ -14,7 +14,7 @@
 //----------------------------------------------------------------------
 GameStage::GameStage(ModeBase* game):CharacterBase(game){
 	//位置初期化
-	m_Pos = Vector3D(500.0f, 0.0f, 100.0f);
+	m_Pos = Vector3D(0.0f, 0.0f, 0.0f);
 	//スケール設定
 	m_Scale = Vector3D(1000.0f, 10.0f, 1000.0f);
 
@@ -30,8 +30,7 @@ GameStage::GameStage(ModeBase* game):CharacterBase(game){
 	m_Collision = NEW OBB("stage", m_Pos, m_Scale);
 	m_OBB = NEW DrawOBBComponent(this);
 
-	//カメラ初期化
-	m_Camera = NEW CameraComponent(this);
+	OBBColComponent* Col = NEW OBBColComponent(this);
 }
 
 //----------------------------------------------------------------------
@@ -41,8 +40,6 @@ GameStage::GameStage(ModeBase* game):CharacterBase(game){
 GameStage::~GameStage(){
 	delete m_Collision;
 	m_Collision = nullptr;
-	delete m_Camera;
-	m_Camera = nullptr;
 }
 
 //----------------------------------------------------------------------

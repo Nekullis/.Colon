@@ -18,6 +18,5 @@ protected:
 	class InputComponent* m_Input;
 	class OBB* m_Collision;
 	class DrawOBBComponent* m_OBB;
-	class CameraComponent* m_Camera;
 };
 

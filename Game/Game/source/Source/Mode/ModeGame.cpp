@@ -8,16 +8,18 @@
 #include "../../Header/Character/CharacterManager.h"
 #include "../../Header/Character/GameStage/GameStage.h"
 #include "../../Header/Character/Player/Player.h"
+#include "../../Header/System/GameCollision.h"
 //----------------------------------------------------------------------
 // @brief 初期化処理
 // @return 無し
 //----------------------------------------------------------------------
 bool ModeGame::Initialize() {
 	if (!base::Initialize()) { return false; }
+	m_GameCol = NEW GameCollision();
 	// マネージャーの取得
 	m_CharaManager = NEW CharacterManager();
-	m_CharaManager->AddChara(NEW GameStage(this));
-	m_CharaManager->AddChara(NEW Player(this));
+	m_CharaManager->AddChara(NEW GameStage(this),m_GameCol);
+	m_CharaManager->AddChara(NEW Player(this),m_GameCol);
 	return true;
 }
 //----------------------------------------------------------------------
@@ -28,6 +30,8 @@ bool ModeGame::Terminate() {
 	base::Terminate();
 	delete m_CharaManager;
 	m_CharaManager = nullptr;
+	delete m_GameCol;
+	m_GameCol = nullptr;
 	return true;
 }
 //----------------------------------------------------------------------
@@ -37,6 +41,7 @@ bool ModeGame::Terminate() {
 bool ModeGame::Process() {
 	base::Process();
 	m_CharaManager->UpDate();
+	m_GameCol->Process();
 	return true;
 }
 //----------------------------------------------------------------------

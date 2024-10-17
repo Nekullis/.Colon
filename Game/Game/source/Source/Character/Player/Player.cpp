@@ -13,10 +13,17 @@
 // @return ‚È‚µ
 //----------------------------------------------------------------------
 Player::Player(ModeBase* game) :CharacterBase(game){
+	m_Pos = { 0.0f,200.0f,0.0f };
 	m_UseGravity = true;
+
 	m_Collision = NEW Sphere();
+	m_Collision->r = 100.0f;
 	m_Sphere = NEW DrawSphereComponent(this);
-	
+
+	SphereColComponent* Col = NEW SphereColComponent(this);
+
+	//ƒJƒƒ‰‰Šú‰»
+	m_Camera = NEW CameraComponent(this);
 }
 
 //----------------------------------------------------------------------
@@ -26,6 +33,8 @@ Player::Player(ModeBase* game) :CharacterBase(game){
 Player::~Player(){
 	delete m_Collision;
 	m_Collision = nullptr;
+	delete m_Camera;
+	m_Camera = nullptr;
 }
 
 //----------------------------------------------------------------------

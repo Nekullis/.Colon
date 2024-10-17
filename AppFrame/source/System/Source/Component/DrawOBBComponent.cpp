@@ -32,6 +32,7 @@ DrawOBBComponent::~DrawOBBComponent(){
 //----------------------------------------------------------------------
 void DrawOBBComponent::Update(){
 	DrawComponent::Update();
+	m_Obb->pos = m_Pos;
 	m_Obb->Render(GetColor(255,255,255));
 }
 

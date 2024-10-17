@@ -71,7 +71,7 @@ void GameCollision::Process(){
 						Vector3D Vec = Obb->dir_vec[0] + Obb->dir_vec[2];
 						Vec = Vec.Normalize();
 						//オブジェクトの位置に反映
-						(*jtr)->SetPos(Sub);
+						(*jtr)->GetOwner()->SetPos(Sub);
 					}
 				}
 			}

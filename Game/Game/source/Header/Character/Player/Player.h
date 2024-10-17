@@ -18,4 +18,5 @@ public:
 protected:
 	class Sphere* m_Collision;
 	class DrawSphereComponent* m_Sphere;
+	class CameraComponent* m_Camera;
 };
