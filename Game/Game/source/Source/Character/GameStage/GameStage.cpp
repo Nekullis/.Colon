@@ -48,7 +48,7 @@ GameStage::~GameStage(){
 //----------------------------------------------------------------------
 void GameStage::Process(){
 	CharacterBase::Process();
-	//回転地の基底値を設定
+	//回転値の規定値を設定
 	float Control_Value = Math::DegToRad(30.0f);
 	//ベクトルの増加量を設定
 	float Vec_Dir = Math::DegToRad(1.0f);

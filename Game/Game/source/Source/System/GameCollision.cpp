@@ -61,15 +61,16 @@ void GameCollision::Process(){
 					OBB* Obb = static_cast<OBB*>((*itr)->GetCollision());
 					Sphere* Sph = static_cast<Sphere*>((*jtr)->GetCollision());
 					//最近点用の変数初期化
-					Vector3D* Dist = NEW Vector3D(0.0f, 0.0f, 0.0f);
+					Vector3D Dist =  Vector3D(0.0f, 0.0f, 0.0f);
 					//オブジェクト同士が当たっていた場合
-					if (Collision3D::OBBSphereCol(*Obb, *Sph, Dist)) {
+					if (Collision3D::OBBSphereCol(*Obb, *Sph, &Dist)) {
 						//オブジェクト間の距離を求める
 						Vector3D Sub = (*jtr)->GetPos() - (*itr)->GetPos();
 						//正規化して逆ベクトルに
-						Sub = Sub.Normalize() * -1;
+						Sub = (Sub.Normalize() * -1) * 100;
 						Vector3D Vec = Obb->dir_vec[0] + Obb->dir_vec[2];
 						Vec = Vec.Normalize();
+						Vector3D Move ;
 						//オブジェクトの位置に反映
 						(*jtr)->GetOwner()->SetPos(Sub);
 					}
