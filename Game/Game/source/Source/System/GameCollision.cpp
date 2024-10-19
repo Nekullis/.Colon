@@ -50,29 +50,45 @@ void GameCollision::Process(){
 	//コンテナサイズが0でないのなら
 	if (m_CollisionList.size() > 0) {
 		//2重if文で全検索
-		for (auto itr = m_CollisionList.begin(); itr != m_CollisionList.end(); itr++) {
-			for (auto jtr = itr + 1; jtr != m_CollisionList.end(); jtr++) {
+		for (auto itr_i = m_CollisionList.begin(); itr_i != m_CollisionList.end(); itr_i++) {
+			for (auto itr_j = itr_i + 1; itr_j != m_CollisionList.end(); itr_j++) {
 				//同じものなら再検索
-				if (itr == jtr)continue; 
+				if (itr_i == itr_j)continue; 
 				//	当たり判定タイプがOBBと球の場合
-				if ((*itr)->GetType() == CollisionComponent::COLLISIONTYPE::OBB&& 
-					(*jtr)->GetType() == CollisionComponent::COLLISIONTYPE::SPHERE) {
+				if ((*itr_i)->GetType() == CollisionComponent::COLLISIONTYPE::OBB&& 
+					(*itr_j)->GetType() == CollisionComponent::COLLISIONTYPE::SPHERE) {
 					//各オブジェクトの当たり判定を取得
-					OBB* Obb = static_cast<OBB*>((*itr)->GetCollision());
-					Sphere* Sph = static_cast<Sphere*>((*jtr)->GetCollision());
+					OBB* Obb = dynamic_cast<OBB*>((*itr_i)->GetCollision());
+					Sphere* Sph = dynamic_cast<Sphere*>((*itr_j)->GetCollision());
 					//最近点用の変数初期化
 					Vector3D Dist =  Vector3D(0.0f, 0.0f, 0.0f);
 					//オブジェクト同士が当たっていた場合
 					if (Collision3D::OBBSphereCol(*Obb, *Sph, &Dist)) {
-						//オブジェクト間の距離を求める
-						Vector3D Sub = (*jtr)->GetPos() - (*itr)->GetPos();
-						//正規化して逆ベクトルに
-						Sub = (Sub.Normalize() * -1) * 100;
+						(*itr_j)->GetCollision()->isHit = true;
+						//OBBの面に沿った方向ベクトルを取得
 						Vector3D Vec = Obb->dir_vec[0] + Obb->dir_vec[2];
+						//正規化
 						Vec = Vec.Normalize();
-						Vector3D Move ;
+						//OBBの面に沿った方向ベクトルの外積を求める
+						Vector3D VecCloss = Vec.Cross(Obb->dir_vec[2]);
+						//法線ベクトルを求める
+						VecCloss = VecCloss.Normalize();
+						if (fabs(VecCloss.y) > 0.999f) {
+							float Len = Dist.Len();
+							Vector3D Pos = Dist.Normalize() * Len;
+							(*itr_j)->GetOwner()->SetPos(Pos);
+							return;
+						}
+						//重力ベクトルを設定
+						Vector3D Gravity = Vector3D(0.0f, -9.8f, 0.0f);
+						//方向ベクトルに重力ベクトルをスケーリングする
+						Vector3D GravityImpactsObb = VecCloss * (Gravity.Dot(VecCloss));
+						GravityImpactsObb = Gravity - GravityImpactsObb;
 						//オブジェクトの位置に反映
-						(*jtr)->GetOwner()->SetPos(Sub);
+						(*itr_j)->GetOwner()->SetPos((*itr_j)->GetOwner()->GetPos() + GravityImpactsObb);
+					}
+					else {
+						(*itr_j)->GetCollision()->isHit = false;
 					}
 				}
 			}

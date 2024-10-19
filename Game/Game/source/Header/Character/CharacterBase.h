@@ -19,10 +19,10 @@ public:
 	virtual void Render()	 override;
 	virtual void Debug()	 override;
 	//ゲッター
-	float GetLineSeg()							const { return m_LineSeg; }
-	int	GetHandle()								const { return m_Handle; }
-	int GetHp()									const { return m_Hp; }
-	bool GetUseGravity()						const { return m_UseGravity; }
+	float GetLineSeg()				  const { return m_LineSeg; }
+	int	GetHandle()					  const { return m_Handle; }
+	int GetHp()						  const { return m_Hp; }
+	bool GetUseGravity()			  const { return m_UseGravity; }
 	//セッター
 	void SetLineSeg		(float line)		{ m_LineSeg = line; }
 	void SetHandle		(int handle)		{ m_Handle = handle; }
@@ -37,6 +37,5 @@ protected:
 	float m_LineSeg;
 	//重力に干渉するか
 	bool m_UseGravity;
-	
 };
 

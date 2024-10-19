@@ -65,7 +65,7 @@ void CameraComponent::Update()
 	//カメラ位置をプレーヤー位置に球型座標系から変化した座標系を足した座標にする
 	pos = m_Owner->GetPos() + Collision3D::ConvertToCartesian(m_Dir, m_Distance);
 	//後頭部より少し高めの位置にする
-	pos.y += 300.0f;
+	pos.y += 100.0f;
 	target = Vector3D(m_Owner->GetPos()); 
 	m_Pos = pos;
 	//ばね力計算

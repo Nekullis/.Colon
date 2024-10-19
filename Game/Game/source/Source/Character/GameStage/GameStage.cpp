@@ -16,7 +16,7 @@ GameStage::GameStage(ModeBase* game):CharacterBase(game){
 	//位置初期化
 	m_Pos = Vector3D(0.0f, 0.0f, 0.0f);
 	//スケール設定
-	m_Scale = Vector3D(1000.0f, 10.0f, 1000.0f);
+	m_Scale = Vector3D(1000.0f, 100.0f, 1000.0f);
 
 	//入力用コンポーネント初期化
 	m_Input = NEW InputComponent(this);
@@ -26,11 +26,14 @@ GameStage::GameStage(ModeBase* game):CharacterBase(game){
 	////描画用モデル読み込み
 	//Model->LoadPass("");
 
-	//コリジョン用OBB初期化
-	m_Collision = NEW OBB("stage", m_Pos, m_Scale);
-	m_OBB = NEW DrawOBBComponent(this);
+	//OBB情報初期化
+	m_Obb = NEW OBB("stage", m_Pos, m_Scale);
 
-	OBBColComponent* Col = NEW OBBColComponent(this);
+	//OBB描画コンポーネント初期化
+	m_Draw = NEW DrawOBBComponent(this);
+
+	//OBB用当たり判定コンポーネント初期化
+	m_Col = NEW OBBColComponent(this);
 }
 
 //----------------------------------------------------------------------
@@ -38,8 +41,8 @@ GameStage::GameStage(ModeBase* game):CharacterBase(game){
 // @return なし
 //----------------------------------------------------------------------
 GameStage::~GameStage(){
-	delete m_Collision;
-	m_Collision = nullptr;
+	delete m_Obb;
+	m_Obb = nullptr;
 }
 
 //----------------------------------------------------------------------
@@ -68,6 +71,7 @@ void GameStage::Process(){
 	}
 
 	//OBBを回転させる
-	m_Collision->Rotate(m_Rotation);
-	m_OBB->SetOBB(m_Collision);
+	m_Obb->Rotate(m_Rotation);
+	m_Draw->SetOBB(m_Obb);
+	m_Col->SetCollision(m_Obb);
 }

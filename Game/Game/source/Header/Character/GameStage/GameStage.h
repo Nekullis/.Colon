@@ -16,7 +16,8 @@ public:
 protected:
 	//入力処理コンポーネント
 	class InputComponent* m_Input;
-	class OBB* m_Collision;
-	class DrawOBBComponent* m_OBB;
+	class OBB* m_Obb;
+	class OBBColComponent* m_Col;
+	class DrawOBBComponent* m_Draw;
 };
 
