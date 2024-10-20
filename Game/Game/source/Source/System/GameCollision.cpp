@@ -73,15 +73,19 @@ void GameCollision::Process(){
 						Vector3D VecCloss = Vec.Cross(Obb->dir_vec[2]);
 						//法線ベクトルを求める
 						VecCloss = VecCloss.Normalize();
+						//最近点のベクトルの長さを取得
+						float Depth = Dist.Len();
+						//外積が1より小さい場合
 						if (fabs(VecCloss.y) > 0.999f) {
-							float Len = Dist.Len();
-							Vector3D Pos = Dist.Normalize() * Len;
+							//最近点の位置を正規化しベクトルの長さをスケーリングする
+							Vector3D Pos = Dist.Normalize() * Depth;
+							//ボールの位置に反映
 							(*itr_j)->GetOwner()->SetPos(Pos);
 							return;
 						}
 						//重力ベクトルを設定
 						Vector3D Gravity = Vector3D(0.0f, -9.8f, 0.0f);
-						//方向ベクトルに重力ベクトルをスケーリングする
+						//方向ベクトルに重力ベクトルの内積をスケーリングする
 						Vector3D GravityImpactsObb = VecCloss * (Gravity.Dot(VecCloss));
 						GravityImpactsObb = Gravity - GravityImpactsObb;
 						//オブジェクトの位置に反映
