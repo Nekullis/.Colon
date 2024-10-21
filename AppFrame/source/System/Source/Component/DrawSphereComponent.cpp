@@ -34,5 +34,9 @@ DrawSphereComponent::~DrawSphereComponent(){
 void DrawSphereComponent::Update(){
 	DrawComponent::Update();
 	m_Sphere->pos = m_Pos;
-	m_Sphere->Render(GetColor(255, 255, 255));
+	int Color = GetColor(255, 255, 255);
+	if (m_Sphere->isHit) {
+		Color = GetColor(255, 0, 0);
+	}
+	m_Sphere->Render(Color);
 }

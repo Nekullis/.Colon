@@ -87,6 +87,7 @@ void GameCollision::Process(){
 						Vector3D Gravity = Vector3D(0.0f, -9.8f, 0.0f);
 						//方向ベクトルに重力ベクトルの内積をスケーリングする
 						Vector3D GravityImpactsObb = VecCloss * (Gravity.Dot(VecCloss));
+						//重力ベクトルとスケーリングした重力ベクトルの差を求める
 						GravityImpactsObb = Gravity - GravityImpactsObb;
 						//オブジェクトの位置に反映
 						(*itr_j)->GetOwner()->SetPos((*itr_j)->GetOwner()->GetPos() + GravityImpactsObb);
