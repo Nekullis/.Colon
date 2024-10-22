@@ -61,9 +61,9 @@ void GameCollision::Process(){
 					OBB* Obb = dynamic_cast<OBB*>((*itr_i)->GetCollision());
 					Sphere* Sph = dynamic_cast<Sphere*>((*itr_j)->GetCollision());
 					//最近点用の変数初期化
-					Vector3D Dist =  Vector3D(0.0f, 0.0f, 0.0f);
+					Vector3D HitPos =  Vector3D(0.0f, 0.0f, 0.0f);
 					//オブジェクト同士が当たっていた場合
-					if (Collision3D::OBBSphereCol(*Obb, *Sph, &Dist)) {
+					if (Collision3D::OBBSphereCol(*Obb, *Sph, &HitPos)) {
 						(*itr_j)->GetCollision()->isHit = true;
 						//OBBの面に沿った方向ベクトルを取得
 						Vector3D Vec = Obb->dir_vec[0] + Obb->dir_vec[2];
@@ -72,25 +72,21 @@ void GameCollision::Process(){
 						//OBBの面に沿った方向ベクトルの外積を求める
 						Vector3D VecCloss = Vec.Cross(Obb->dir_vec[2]);
 						//法線ベクトルを求める
-						VecCloss = VecCloss.Normalize();
+						Vector3D NormalVec = VecCloss.Normalize();
 						//最近点のベクトルの長さを取得
-						float Depth = Dist.Len();
-						//外積が1より小さい場合
-						if (fabs(VecCloss.y) > 0.999f) {
-							//最近点の位置を正規化しベクトルの長さをスケーリングする
-							Vector3D Pos = Dist.Normalize() * Depth;
-							//ボールの位置に反映
-							(*itr_j)->GetOwner()->SetPos(Pos);
-							return;
-						}
+						float Depth = HitPos.Len();
 						//重力ベクトルを設定
 						Vector3D Gravity = Vector3D(0.0f, -9.8f, 0.0f);
-						//方向ベクトルに重力ベクトルの内積をスケーリングする
-						Vector3D GravityImpactsObb = VecCloss * (Gravity.Dot(VecCloss));
-						//重力ベクトルとスケーリングした重力ベクトルの差を求める
+						//法線ベクトルに重力ベクトルの内積をかけ合わせる
+						Vector3D GravityImpactsObb = NormalVec * (Gravity.Normalize().Dot(NormalVec));
+						//重力ベクトルとかけ合わせた重力ベクトルの差を求める
 						GravityImpactsObb = Gravity - GravityImpactsObb;
+						//球の埋め込んだ分の押し出し処理
+						float Len = (HitPos - (*itr_j)->GetOwner()->GetPos()).Len();
+						Len = Sph->r - Len;
 						//オブジェクトの位置に反映
-						(*itr_j)->GetOwner()->SetPos((*itr_j)->GetOwner()->GetPos() + GravityImpactsObb);
+						(*itr_j)->GetOwner()->SetPos((*itr_j)->GetOwner()->GetPos() + Obb->dir_vec[1] * Len + GravityImpactsObb);
+						
 					}
 					else {
 						(*itr_j)->GetCollision()->isHit = false;

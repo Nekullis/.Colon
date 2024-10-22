@@ -29,7 +29,7 @@ CameraComponent::CameraComponent(ObjectBase* owner, int updateowder) : LogicComp
 	//Å’·•`‰æ‹——£‰Šú‰»
 	m_Far = 50000.0f;
 	//‹——£’l‰Šú‰»
-	m_Distance = 700.0f;
+	m_Distance = -700.0f;
 	//‚Î‚Ë’è”
 	m_Spring = 0.1f;
 	//Œ¸Š’è”
