@@ -54,17 +54,21 @@ void GameCollision::Process(){
 			for (auto itr_j = itr_i + 1; itr_j != m_CollisionList.end(); itr_j++) {
 				//同じものなら再検索
 				if (itr_i == itr_j)continue; 
+
 				//	当たり判定タイプがOBBと球の場合
 				if ((*itr_i)->GetType() == CollisionComponent::COLLISIONTYPE::OBB&& 
 					(*itr_j)->GetType() == CollisionComponent::COLLISIONTYPE::SPHERE) {
 					//各オブジェクトの当たり判定を取得
 					OBB* Obb = dynamic_cast<OBB*>((*itr_i)->GetCollision());
 					Sphere* Sph = dynamic_cast<Sphere*>((*itr_j)->GetCollision());
+
 					//最近点用の変数初期化
 					Vector3D HitPos =  Vector3D(0.0f, 0.0f, 0.0f);
+
 					//オブジェクト同士が当たっていた場合
 					if (Collision3D::OBBSphereCol(*Obb, *Sph, &HitPos)) {
 						(*itr_j)->GetCollision()->isHit = true;
+
 						//OBBの面に沿った方向ベクトルを取得
 						Vector3D Vec = Obb->dir_vec[0] + Obb->dir_vec[2];
 						//正規化
@@ -73,21 +77,29 @@ void GameCollision::Process(){
 						Vector3D VecCloss = Vec.Cross(Obb->dir_vec[2]);
 						//法線ベクトルを求める
 						Vector3D NormalVec = VecCloss.Normalize();
-						//最近点のベクトルの長さを取得
-						float Depth = HitPos.Len();
+
 						//重力ベクトルを設定
-						Vector3D Gravity = Vector3D(0.0f, -9.8f, 0.0f);
+						Vector3D GravityVec = Vector3D(0.0f, -9.8f, 0.0f);
 						//法線ベクトルに重力ベクトルの内積をかけ合わせる
-						Vector3D GravityImpactsObb = NormalVec * (Gravity.Normalize().Dot(NormalVec));
+						Vector3D MultiVec = NormalVec * (GravityVec.Normalize().Dot(NormalVec));
 						//重力ベクトルとかけ合わせた重力ベクトルの差を求める
-						GravityImpactsObb = Gravity - GravityImpactsObb;
+						Vector3D SubVec = GravityVec - MultiVec;
+
 						//球の埋め込んだ分の押し出し処理
-						float Len = (HitPos - (*itr_j)->GetOwner()->GetPos()).Len();
-						Len = Sph->r - Len;
+						//最接近点と球の位置の差のベクトルの長さを求める
+						float PushLen = (HitPos - (*itr_j)->GetOwner()->GetPos()).Len();
+						//球の半径とベクトルの長さの差を求める
+						float SubLen = Sph->r - PushLen;
+
+						//最終的な押し出しベクトルを求める
+						//OBBのy軸のベクトルにSubLenを掛け合わせ、SubVecを加算する
+						Vector3D Velocity = Obb->dir_vec[1] * SubLen + SubVec;
+
 						//オブジェクトの位置に反映
-						(*itr_j)->GetOwner()->SetPos((*itr_j)->GetOwner()->GetPos() + Obb->dir_vec[1] * Len + GravityImpactsObb);
+						(*itr_j)->GetOwner()->SetPos((*itr_j)->GetOwner()->GetPos() + Velocity);
 						
 					}
+					//当たっていない
 					else {
 						(*itr_j)->GetCollision()->isHit = false;
 					}
