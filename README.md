@@ -8,6 +8,12 @@ Visual Studio Community 2022
 # 使用ライブラリ
 [DX ライブラリ](https://dxlib.xsrv.jp/)
 
+# ゲームパッド
+Xinput
+
+# 操作方法
+パッド左スティック : OBBを傾ける
+
 # プロジェクト構成と起動方法
 下記 DxLib ディレクトリ内に [DX ライブラリ Windows版 VisualStudio(C++)用](https://dxlib.xsrv.jp/DxLib/DxLib_VC3_24d.zip) を DownLoad して解凍後の ***プロジェクトに追加すべきファイル_VC用*** ディレクトリの内容を全てコピーします。
 <pre>
@@ -410,3 +416,9 @@ ModeServer が各モードを切り替える機能を提供します。
 ### Component
 自身がこのフレームワークに追加したクラス群でオブジェクトに指向性の制御を後付けで登録できるクラス
 今回使ったのは描画と当たり判定のコンポーネントであり、これらを個々で登録できるため、余計な処理をしない。
+使用したコンポーネント:
+ OBBColComponent
+ SphereColComponent
+ DrawOBBComponent
+ DrawSphereComponent
+
