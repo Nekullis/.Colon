@@ -1,6 +1,6 @@
 
 //----------------------------------------------------------------------
-// @filename ModeGame.cpp
+// @filename ModeDebug.cpp
 // @author: saito ko
 // @explanation
 // ゲーム本編を管理するクラス

@@ -1,5 +1,5 @@
 //----------------------------------------------------------------------
-// @filename CharacterBase.h
+// @filename GameCollision.cpp
 // @author: Fukuma Kyohei
 // @explanation
 // ゲーム内のオブジェクト判定管理クラス
