@@ -14,7 +14,7 @@
 //----------------------------------------------------------------------
 void Sphere::Render(unsigned int color)
 {
-	DrawSphere3D(pos.toVECTOR(), r, 6, color, color, false);
+	DrawSphere3D(pos.toVECTOR(), r, 64, color, color, false);
 }
 
 //----------------------------------------------------------------------
