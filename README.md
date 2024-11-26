@@ -399,12 +399,12 @@ Xinput
 ├── .gitattributes
 │
 └── .gitignore
-  
+
 </pre>
 </details>
 
 # AppFrame フレームワーク概要
-ゲームを作成する上で定形的に必要となる機能をまとめたフレームワーク。共同制作用にチームの皆のファイルを集めたもの
+ゲームを作成する上で定形的に必要となる機能をまとめたフレームワーク。
 Static Library の形式で提供(Project 設定)
 
 ### ApplicationBase
